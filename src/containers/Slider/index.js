@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
 import { getMonth } from "../../helpers/Date";
 
@@ -23,8 +23,11 @@ const Slider = () => {
   useEffect(() => {
     nextCard();
   });
+  const handleRadioChange = (radioIdx) => {
+    setIndex(radioIdx);
+  };
   return (
-    <div className="SlideCardList">
+    <div className="SlideCardList" key="slide-card-list">
       {byDateDesc?.map((event, idx) => (
         <>
           <div
@@ -44,12 +47,16 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((dot, radioIdx) => (
+              {byDateDesc.map((eventItem, radioIdx) => (
                 <input
-                  key={dot.title}
+                  // La key de l'élément est définie comme la date de l'événement
+                  key={`${eventItem.date}`}
                   type="radio"
-                  name="radio-button"
+                  //  on utilise radioIdx pour le rendre unique
+                  name={`radio-button-${radioIdx}`}
+                  // ce qui détermine si le bouton radio est coché ou non
                   checked={index === radioIdx}
+                  onChange={() => handleRadioChange(radioIdx)}
                 />
               ))}
             </div>
