@@ -29,7 +29,7 @@ const Slider = () => {
   return (
     <div className="SlideCardList" key="slide-card-list">
       {byDateDesc?.map((event, idx) => (
-        <>
+        <React.Fragment key={event.title}>
           <div
             key={event.title}
             className={`SlideCard SlideCard--${
@@ -47,21 +47,18 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((eventItem, radioIdx) => (
+              {byDateDesc.map((_, radioIdx) => (
                 <input
-                  // La key de l'élément est définie comme la date de l'événement
-                  key={`${eventItem.date}`}
+                  key={`${_.title}`}
                   type="radio"
-                  //  on utilise radioIdx pour le rendre unique
                   name={`radio-button-${radioIdx}`}
-                  // ce qui détermine si le bouton radio est coché ou non
                   checked={index === radioIdx}
                   onChange={() => handleRadioChange(radioIdx)}
                 />
               ))}
             </div>
           </div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

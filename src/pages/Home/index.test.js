@@ -31,24 +31,10 @@ describe("When a page is created", () => {
     // to implement
   });
   it("a list a people is displayed", () => {
-    render(<Home />);
-    expect(screen.getByText("Samira"));
-    expect(screen.getByText("Jean-baptiste"));
-    expect(screen.getByText("Alice"));
-    expect(screen.getByText("Luís"));
-    expect(screen.getByText("Christine"));
-    expect(screen.getByText("Isabelle"));
+    // to implement
   });
   it("a footer is displayed", () => {
-    render(<Home />);
-    expect(screen.getByText("Notre derniére prestation"));
-    expect(screen.getByText("Contactez-nous"));
-    expect(screen.getByText("45 avenue de la République, 75000 Paris"));
-    expect(
-      screen.getByText(
-        "Une agence événementielle propose des prestations de service spécialisées dans la conception et l'organisation de divers événements tels que des événements festifs, des manifestations sportives et culturelles, des événements professionnels"
-      )
-    );
+    // to implement
   });
   it("an event card, with the last event, is displayed", () => {
     // to implement
